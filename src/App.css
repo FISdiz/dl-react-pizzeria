@@ -1,42 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #212529;
+  padding: 1rem 2rem;
+  color: white;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: 1rem;
+}
+
+.btn-nav {
+  background-color: transparent;
+  border: 1px solid #6c757d;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  transition: all 0.3s;
+}
+
+.btn-nav:hover {
+  background-color: #6c757d;
+}
+
+.btn-total {
+  border-color: #0d6efd;
+  color: #0d6efd;
+  font-weight: 500;
+}
+
+.btn-total:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Header */
+.header {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+  position: relative;
   text-align: center;
+  color: white;
+  z-index: 1;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-content p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Home */
+.home {
+  flex: 1;
 }
 
-.card {
-  padding: 2em;
+/* Pizza Container */
+.pizza-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 3rem 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+/* Card Pizza */
+.card-pizza {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-pizza:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-body h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.card-ingredients {
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.card-ingredients p {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.card-ingredients ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card-ingredients li {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.card-price {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-price h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-card {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s;
+}
+
+.btn-outline {
+  background-color: white;
+  border: 1px solid #212529;
+  color: #212529;
+}
+
+.btn-outline:hover {
+  background-color: #f8f9fa;
+}
+
+.btn-dark {
+  background-color: #212529;
+  color: white;
+}
+
+.btn-dark:hover {
+  background-color: #424649;
+}
+
+/* Footer */
+.footer {
+  background-color: #212529;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  font-weight: 300;
 }
