@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import RegisterPage from './pages/RegisterPage';
-import LoginPage from './pages/LoginPage';
+//import RegisterPage from './pages/RegisterPage';
+//import LoginPage from './pages/LoginPage';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -9,9 +9,9 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <Home /> */}
+      <Home />
       {/*<RegisterPage />*/}
-      <LoginPage />
+      {/*<LoginPage />*/}
       <Footer />
     </>
   );
