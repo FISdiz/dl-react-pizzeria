@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { formatPrice } from '../utils/formatPrice';
 
 const Navbar = () => {
@@ -8,22 +9,24 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-left">
-          <span className="navbar-brand">Pizzería Mamma Mia!</span>
-          <button className="btn-nav">🍕 Home</button>
+          <Link to="/" className="navbar-brand">Pizzería Mamma Mia!</Link>
+          <Link to="/" className="btn-nav">🍕 Home</Link>
           {token ? (
             <>
-              <button className="btn-nav">🔓 Profile</button>
+              <Link to="/profile" className="btn-nav">🔓 Profile</Link>
               <button className="btn-nav">🔒 Logout</button>
             </>
           ) : (
             <>
-              <button className="btn-nav">🔐 Login</button>
-              <button className="btn-nav">🔐 Register</button>
+              <Link to="/login" className="btn-nav">🔐 Login</Link>
+              <Link to="/register" className="btn-nav">🔐 Register</Link>
             </>
           )}
         </div>
         <div className="navbar-right">
-          <button className="btn-nav btn-total">🛒 Total: ${formatPrice(total)}</button>
+          <Link to="/cart" className="btn-nav btn-total">
+            🛒 Total: ${formatPrice(total)}
+          </Link>
         </div>
       </div>
     </nav>

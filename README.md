@@ -14,4 +14,8 @@ Se crea la página de carrito, que permite sumar diferentes cantidades de pizzas
 
 # Hito 4
 Se completó el cuarto hito del sitio web para Pizzeria Mamma Mia.
-Se crea la pagina Pizza.jsx para visualizar el detalle de una pizza - esta pantalla se encuentra fija en el commit para su visualización. La informacion es obtenida desde una API en http://localhost:5000/api/pizzas que debe ser iniciada desde la terminal con la información otorgada en el desafio
+Se crea la pagina Pizza.jsx para visualizar el detalle de una pizza - esta pantalla se encuentra fija en el commit para su visualización. La informacion es obtenida desde una API en http://localhost:5000/api/pizzas que debe ser iniciada desde la terminal con la información otorgada en el desafio.
+
+# Hito 5
+Se completó el quinto hito del sitio web para Pizzeria Mamma Mia.
+Se implementa React Router para navegación entre páginas sin recargar el navegador. Se crean las rutas: / (Home), /register, /login, /cart, /pizza/p001, /profile y /404. Se agregan las páginas Profile y NotFound (404). El Navbar ahora usa componentes Link en lugar de botones para navegar entre las diferentes secciones del sitio.
