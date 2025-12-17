@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 import { formatPrice } from '../utils/formatPrice';
 
 const Navbar = () => {
-  const total = 25000;
+  const { calculateTotal } = useContext(CartContext);
   const token = false;
 
   return (
@@ -25,7 +27,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-right">
           <Link to="/cart" className="btn-nav btn-total">
-            🛒 Total: ${formatPrice(total)}
+            🛒 Total: ${formatPrice(calculateTotal())}
           </Link>
         </div>
       </div>
