@@ -1,9 +1,11 @@
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import { UserContext } from '../context/UserContext';
 import { formatPrice } from '../utils/formatPrice';
 
 const Cart = () => {
   const { cart, increaseQuantity, decreaseQuantity, calculateTotal } = useContext(CartContext);
+  const { token } = useContext(UserContext);
 
   if (cart.length === 0) {
     return (
@@ -52,7 +54,12 @@ const Cart = () => {
           <h3>Total: ${formatPrice(calculateTotal())}</h3>
         </div>
 
-        <button className="btn-pay">Pagar</button>
+        <button 
+          className="btn-pay" 
+          disabled={!token}
+        >
+          Pagar
+        </button>
       </div>
     </div>
   );

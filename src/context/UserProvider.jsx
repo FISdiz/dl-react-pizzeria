@@ -1,0 +1,16 @@
+import { useState } from 'react';
+import { UserContext } from './UserContext';
+
+export const UserProvider = ({ children }) => {
+  const [token, setToken] = useState(true); // Por defecto true
+
+  const logout = () => {
+    setToken(false);
+  };
+
+  return (
+    <UserContext.Provider value={{ token, logout }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
