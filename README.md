@@ -19,3 +19,8 @@ Se crea la pagina Pizza.jsx para visualizar el detalle de una pizza - esta panta
 # Hito 5
 Se completó el quinto hito del sitio web para Pizzeria Mamma Mia.
 Se implementa React Router para navegación entre páginas sin recargar el navegador. Se crean las rutas: / (Home), /register, /login, /cart, /pizza/p001, /profile y /404. Se agregan las páginas Profile y NotFound (404). El Navbar ahora usa componentes Link en lugar de botones para navegar entre las diferentes secciones del sitio.
+
+# Hito 6
+Se completó el sexto hito del sitio web para Pizzeria Mamma Mia.
+Se implementa Context API para manejar carrito de compras. Ahora el carrito es accesible desde cualquier componente de la aplicación. El Navbar muestra el total del carrito en tiempo real, las tarjetas de pizza en Home permiten agregar productos al carrito, y la página Cart consume el contexto para mostrar, modificar y calcular el total de la compra.
+
