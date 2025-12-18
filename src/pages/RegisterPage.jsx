@@ -1,38 +1,52 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+  const { register } = useContext(UserContext);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
 
-    // campos obligatorios
+    // Validaciones
     if (!email || !password || !confirmPassword) {
-      alert('Todos los campos son obligatorios');
+      setError('Todos los campos son obligatorios');
       return;
     }
 
-    // password minimo 6 caracteres
     if (password.length < 6) {
-      alert('El password debe tener al menos 6 caracteres');
+      setError('El password debe tener al menos 6 caracteres');
       return;
     }
 
-    // confirmacion de password
     if (password !== confirmPassword) {
-      alert('El password y la confirmación deben ser iguales');
+      setError('El password y la confirmación deben ser iguales');
       return;
     }
 
-    alert('Registro exitoso!');
+    // Llamar al método register del contexto
+    const result = await register(email, password);
+
+    if (result.success) {
+      alert('Registro exitoso!');
+      navigate('/');
+    } else {
+      setError(result.error);
+    }
   };
 
   return (
     <div className="form-container">
       <form className="form" onSubmit={handleSubmit}>
         <h2>Register</h2>
+        
+        {error && <div className="error-message">{error}</div>}
         
         <div className="form-group">
           <label>Email</label>

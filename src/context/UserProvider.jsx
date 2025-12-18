@@ -63,6 +63,29 @@ export const UserProvider = ({ children }) => {
     setEmail(null);
   };
 
+  // Get Profile
+  const getProfile = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/me', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setEmail(data.email);
+        return { success: true, email: data.email };
+      } else {
+        return { success: false, error: data.error || 'Error obteniendo perfil' };
+      }
+    } catch (error) {
+      console.error('Error en getProfile:', error);
+      return { success: false, error: 'Error de conexión' };
+    }
+  };
+
   return (
     <UserContext.Provider 
       value={{ 
@@ -70,7 +93,8 @@ export const UserProvider = ({ children }) => {
         email, 
         login, 
         register, 
-        logout 
+        logout,
+        getProfile
       }}
     >
       {children}

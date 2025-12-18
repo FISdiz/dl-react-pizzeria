@@ -1,32 +1,46 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const { login } = useContext(UserContext);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
 
-    // Validación: Todos los campos son obligatorios
+    // Validaciones
     if (!email || !password) {
-      alert('Todos los campos son obligatorios');
+      setError('Todos los campos son obligatorios');
       return;
     }
 
-    // Validación: Password debe tener al menos 6 caracteres
     if (password.length < 6) {
-      alert('El password debe tener al menos 6 caracteres');
+      setError('El password debe tener al menos 6 caracteres');
       return;
     }
 
-    // Si todo es correcto
-    alert('Authentication successful!');
+    // Llamar al método login del contexto
+    const result = await login(email, password);
+
+    if (result.success) {
+      alert('Login exitoso!');
+      navigate('/');
+    } else {
+      setError(result.error);
+    }
   };
 
   return (
     <div className="form-container">
       <form className="form" onSubmit={handleSubmit}>
         <h2>Login</h2>
+        
+        {error && <div className="error-message">{error}</div>}
         
         <div className="form-group">
           <label>Email</label>
