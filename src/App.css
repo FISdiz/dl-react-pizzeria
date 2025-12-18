@@ -212,6 +212,10 @@ body {
   font-weight: 500;
   font-family: 'Roboto', sans-serif;
   transition: all 0.3s;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  line-height: normal;
 }
 
 .btn-outline {
