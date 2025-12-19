@@ -28,3 +28,6 @@ Se implementa Context API para manejar carrito de compras. Ahora el carrito es a
 Se completó el séptimo hito del sitio web para Pizzeria Mamma Mia.
 Se implementa useParams para obtener el ID de la pizza desde la URL y mostrar su detalle dinámicamente. Se crea UserContext para manejar la autenticación simulada con un token booleano y función logout. Se implementan rutas protegidas: /profile solo es accesible si el usuario está autenticado (token true), mientras que /login y /register solo son accesibles si no está autenticado (token false). El botón de pagar en el carrito se deshabilita cuando el token es false.
 
+# Hito 8 - Prueba
+Se completó el octavo y último hito del sitio web para Pizzeria Mamma Mia.
+Se implementa autenticación real con JWT consumiendo las rutas /api/auth/login y /api/auth/register del backend entregado en el desafio. El UserContext ahora maneja token e email reales, con métodos login, register, logout y getProfile. Las páginas Login y Register están conectadas al contexto y redirigen al home tras autenticación exitosa. La página Profile muestra el email real del usuario autenticado obtenido de la API. El carrito implementa checkout real enviando los productos al endpoint /api/checkouts con el token JWT en el header, mostrando mensaje de éxito al completar la compra.
